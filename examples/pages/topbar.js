@@ -9,6 +9,8 @@ Page({
       label: '选中的'
     }, {
       label: '未选中'
+    }, {
+      label: '未选中'
     }],
     topbarActiveIndex: 0
   },
@@ -67,5 +69,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  changeTopbar (e) {
+    let { detail: { value: index } } = e
+
+    this.setData({
+      topbarActiveIndex: index
+    })
   }
 })

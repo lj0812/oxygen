@@ -4,10 +4,11 @@
     wx:for="{{topbarList}}"
     wx:key="index"
     class="topbar-item {{index === currentIndex ? 'active' : ''}}"
-    bind:tap="onTap(index)"
+    bind:tap="onTap"
+    data-index="{{index}}"
   >
     <view class="topbar-content">
-      <view class="topbar-text">{{item.label}} {{index === currentIndex}}</view>
+      <view class="topbar-text">{{item.label}}</view>
       <view class="topbar-badge">{{item.value}}</view>
     </view>
   </view>

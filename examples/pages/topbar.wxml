@@ -1,4 +1,4 @@
 <!--pages/topbar.wxml-->
 <view class="page-wrap">
-  <topbar topbar-list="{{topbarList}}" active-index="{{topbarActiveIndex}}" />
+  <topbar topbar-list="{{topbarList}}" active-index="{{topbarActiveIndex}}" bind:click="changeTopbar" />
 </view>

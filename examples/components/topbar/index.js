@@ -25,12 +25,16 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onTap (index) {
-      if (index === this.currentIndex) {
+    onTap (e) {
+      const { currentTarget: { dataset: { index } } } = e
+
+      if (index === this.data.currentIndex) {
         return false
       }
 
-      this.currentIndex = index
+      this.setData({
+        currentIndex: index
+      })
 
       this.triggerEvent('click', { value: index })
     }
@@ -38,9 +42,8 @@ Component({
   lifetimes: {
     attached () {
       this.setData({
-        'data.currentIndex': this.activeIndex
+        currentIndex: this.data.activeIndex
       })
-      console.log(this)
     }
   }
 })
