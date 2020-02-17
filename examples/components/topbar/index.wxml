@@ -1,0 +1,14 @@
+<!--components/topbar/index.wxml-->
+<view class="o2-topbar">
+  <view
+    wx:for="{{topbarList}}"
+    wx:key="index"
+    class="topbar-item {{index === currentIndex ? 'active' : ''}}"
+    bind:tap="onTap(index)"
+  >
+    <view class="topbar-content">
+      <view class="topbar-text">{{item.label}} {{index === currentIndex}}</view>
+      <view class="topbar-badge">{{item.value}}</view>
+    </view>
+  </view>
+</view>

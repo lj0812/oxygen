@@ -1,0 +1,44 @@
+/* components/topbar/index.wxss */
+.o2-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 94rpx;
+  display: flex;
+  background-color: #FFFFFF;
+  z-index: 1;
+}
+.o2-topbar .topbar-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 94rpx;
+  position: relative;
+}
+.o2-topbar .topbar-item.active .topbar-text {
+  color: #333333;
+}
+.o2-topbar .topbar-item:not(:nth-of-type(1))::after {
+  content: '';
+  display: block;
+  width: 2rpx;
+  height: 50rpx;
+  background-color: #DDDDDD;
+  position: absolute;
+  top: 22rpx;
+  left: -1rpx;
+}
+.topbar-text {
+  position: relative;
+  font-size: 32rpx;
+  color: #CCCCCC;
+}
+.topbar-badge {
+  position: absolute;
+  top: -10rpx;
+  left: 105%;
+  font-size: 24rpx;
+  color: #FF6701;
+}

@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/entry"
+    "pages/entry",
+    "pages/topbar"
   ],
   "window": {
     "backgroundTextStyle": "light",
