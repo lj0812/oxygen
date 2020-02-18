@@ -1,1 +1,23 @@
 
+page {
+  background-color: #F5F5F5;
+}
+view,
+textarea,
+input {
+  box-sizing: border-box;
+}
+textarea {
+  width: auto;
+}
+button {
+  padding: 0;
+  border-radius: 0;
+}
+button::after {
+  display: none;
+}
+image {
+  width: 10rpx;
+  height: 10rpx;
+}
