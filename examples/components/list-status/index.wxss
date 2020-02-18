@@ -1,0 +1,9 @@
+/* components/list-status/index.wxss */
+.list-status {
+  height: 80rpx;
+  font-size: 24rpx;
+  color: #888888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

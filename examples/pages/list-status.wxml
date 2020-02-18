@@ -1,0 +1,9 @@
+<!--pages/list-status.wxml-->
+<view class="page-wrap">
+  <list-status has-error="{{hasError}}" has-loaded-all="{{hasLoadedAll}}" list-total="{{listTotal}}" />
+
+  <button bind:tap="testHasError"><view>点击更改状态：</view><view>{ hasError: true }</view></button>
+  <button bind:tap="testLoadedAll"><view>点击更改状态：</view><view>{ hasError: false, hasLoadedAll: true, listTotal: 10 }</view></button>
+  <button bind:tap="testLoadedAllAndHasNoData"><view>点击更改状态：</view><view>{ hasError: false, hasLoadedAll: true, listTotal: 0 }</view></button>
+  <button bind:tap="testLoading"><view>点击更改状态：</view><view>{ hasError: false, hasLoadedAll: false, listTotal: 100 }</view></button>
+</view>

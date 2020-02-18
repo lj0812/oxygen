@@ -17,6 +17,9 @@ button {
 button::after {
   display: none;
 }
+button:not([size='mini']) {
+  width: auto;
+}
 image {
   width: 10rpx;
   height: 10rpx;

@@ -1,0 +1,9 @@
+<!--components/list-status/index.wxml-->
+<view class="list-status">
+  <view wx:if="{{hasError}}" class="status-error" bind:tap="onErrorTap">加载出错，点击重试</view>
+  <view wx:elif="{{hasLoadedAll}}" class="status-done">
+    <view wx:if="{{listTotal > 0}}" class="loaded-all">已加载全部</view>
+    <view wx:else class="no-data">暂无数据</view>
+  </view>
+  <view wx:else class="status-loading">加载中...</view>
+</view>

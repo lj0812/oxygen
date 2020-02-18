@@ -1,0 +1,5 @@
+/* pages/list-status.wxss */
+button:not([size='mini']) {
+  width: auto;
+  margin: 20rpx 0;
+}
