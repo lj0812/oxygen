@@ -1,2 +1,4 @@
 <!--pages/entry.wxml-->
-<text>pages/entry.wxml</text>
+<view class="component-list">
+  <view class="component-item" wx:for="{{componentList}}" wx:key="index" data-key="{{item.key}}" bind:tap="goComponentPage">{{item.name}}</view>
+</view>

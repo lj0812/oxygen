@@ -1,11 +1,22 @@
 // pages/entry.js
+const componentList = [
+  {
+    name: '顶部切换',
+    key: 'topbar'
+  },
+  {
+    name: '列表状态',
+    key: 'list-status'
+  }
+]
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    componentList: [ ...componentList ]
   },
 
   /**
@@ -62,5 +73,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  goComponentPage (e) {
+    let { currentTarget: { dataset: { key } } } = e
+
+    wx.navigateTo({
+      url: `/pages/${key}`
+    })
   }
 })

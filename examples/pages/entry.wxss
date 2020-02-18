@@ -1,1 +1,14 @@
 /* pages/entry.wxss */
+.component-list {
+}
+.component-list .component-item {
+  line-height: 60rpx;
+  padding: 10rpx 20rpx;
+  background-color: #FFFFFF;
+  border-bottom: 1rpx dashed #DDDDDD;
+  font-size: 28rpx;
+  color: #333333;
+}
+.component-list .component-item:nth-last-of-type(1) {
+  border-bottom: none;
+}
