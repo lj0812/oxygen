@@ -8,6 +8,7 @@
   display: flex;
   background-color: #FFFFFF;
   z-index: 1;
+  box-shadow: 0 1rpx 16rpx rgba(0, 0, 0, .5);
 }
 .o2-topbar .topbar-item {
   flex: 1;
