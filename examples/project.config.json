@@ -60,6 +60,13 @@
 					"id": -1,
 					"name": "pages/topbar",
 					"pathName": "pages/topbar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/select-group",
+					"pathName": "pages/select-group",
 					"scene": null
 				}
 			]

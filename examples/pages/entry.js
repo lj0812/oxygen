@@ -7,6 +7,10 @@ const componentList = [
   {
     name: '列表状态',
     key: 'list-status'
+  },
+  {
+    name: '选项组',
+    key: 'select-group'
   }
 ]
 

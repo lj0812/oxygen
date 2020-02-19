@@ -2,7 +2,8 @@
   "pages": [
     "pages/entry",
     "pages/topbar",
-    "pages/list-status"
+    "pages/list-status",
+    "pages/select-group"
   ],
   "window": {
     "backgroundTextStyle": "light",
