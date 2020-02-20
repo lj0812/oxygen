@@ -31,8 +31,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    toggleActiveIndex (e) {
-      let { currentTarget: { dataset: { index = this.data.activeIndex } } } = e
+    toggleActiveIndex (params) {
+      let index = typeof params === 'object'
+        ? +params.currentTarget.dataset.index
+        : params
 
       this.setData({
         activeIndex: index === this.data.activeIndex ? -1 : index
@@ -49,12 +51,17 @@ Component({
         [`keyValues.${key}`]: item[mapperValue]
       })
 
-      console.log(this.data.keyValues)
+      this.toggleActiveIndex(-1)
+
+      this.triggerEvent('change', { value: this.data.keyValues })
     }
   },
   observers: {
     activeIndex (index) {
       if (index === -1) {
+        this.setData({
+          currentOpts: []
+        })
         return false
       }
 
@@ -66,7 +73,6 @@ Component({
     },
 
     'keyOpts,keyValues.**': function (keyOpts, keyValues) {
-      console.log('change', keyOpts, keyValues)
       const labels = keyOpts.map(item => {
         const { key, opts, name, mapper = DEFAULT_MAPPER } = item
         const { label: mapperLable, value: mapperValue } = mapper
@@ -84,26 +90,6 @@ Component({
 
       this.setData({
         labels
-      })
-    }
-  },
-  lifetimes: {
-    attached () {
-      this.setData({
-        labels: this.data.keyOpts.map(item => {
-          const { key, opts, name, mapper = DEFAULT_MAPPER } = item
-          const { label: mapperLable, value: mapperValue } = mapper
-
-          const currValue = this.data.keyValues[key]
-
-          const opt = opts.find(opt => currValue === opt[mapperValue])
-
-          if (opt) {
-            return opt[mapperLable]
-          }
-
-          return name
-        })
       })
     }
   }

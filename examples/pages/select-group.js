@@ -70,10 +70,20 @@ Page({
       name: '',
       color: '',
       status: 'init'
-    }
+    },
+    currentValue: ''
+  },
+
+  onLoad () {
+    this.setData({
+      currentValue: JSON.stringify(this.data.keyValues)
+    })
   },
 
   selectGroupChange (e) {
-
+    console.log('ee', e.detail.value)
+    this.setData({
+      currentValue: JSON.stringify(e.detail.value)
+    })
   }
 })

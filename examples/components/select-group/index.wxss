@@ -1,47 +1,66 @@
 /* components/select-group/index.wxss */
 
-.ac-select-group {
+.o2-select-group {
   position: relative;
   width: 100%;
   height: 94rpx;
 }
-.ac-select-group .select-group {
+.o2-select-group .select-group {
   height: 94rpx;
   background-color: #FFFFFF;
   display: flex;
 }
-.ac-select-group .select-group .select-item {
+.o2-select-group .select-group .select-item {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.ac-select-group .select-group .select-item.active .select-text {
+.o2-select-group .select-group .select-item.active .select-text {
   color: #FF6701;
 }
-.ac-select-group .select-group .select-item.active .select-arrow image {
-  transform: rotate(-180deg);
+.o2-select-group .select-group .select-item.active  .select-text::after {
+  transform: rotate(180deg);
+  border-top-color: #FF6701;
+  margin-top: -18rpx;
 }
-.ac-select-group .select-group .select-item .select-text {
+.o2-select-group .select-group .select-item .select-text {
   font-size: 32rpx;
   font-weight: 400;
   color: #333333;
   line-height: 44rpx;
-  max-width: 80%;
+  max-width: 100%;
+  padding: 0 30rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  position: relative;
 }
-.ac-select-group .select-group .select-item .select-arrow {
+.o2-select-group .select-group .select-item .select-text::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 12rpx;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: #AAAAAA;
+  position: absolute;
+  top: 50%;
+  margin-top: -6rpx;
+  right: 5rpx;
+  transition: all .3s;
+}
+.o2-select-group .select-group .select-item .select-arrow {
   display: flex;
   align-items: center;
   margin-left: 12rpx;
   justify-content: center;
 }
-.ac-select-group .select-group .select-item .select-arrow image {
-  transition: all 0.3s;
+.o2-select-group .select-group .select-item .select-arrow image {
+  transition: all .3s;
 }
-.ac-select-group .options-wrap {
+.o2-select-group .options-wrap {
   position: fixed;
   top: 94rpx;
   bottom: 100vh;
@@ -49,28 +68,28 @@
   right: 0;
   z-index: -1;
   overflow: hidden;
-  transition-delay: 0.25s;
+  transition-delay: .25s;
 }
-.ac-select-group .options-wrap.active {
+.o2-select-group .options-wrap.active {
   z-index: 10;
   bottom: 0;
   transition: all 0s;
 }
-.ac-select-group .options-wrap.active .options-warp-bg {
+.o2-select-group .options-wrap.active .options-warp-bg {
   opacity: 1;
 }
-.ac-select-group .options-wrap .options-warp-bg {
+.o2-select-group .options-wrap .options-warp-bg {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, .5);
   z-index: 1;
   opacity: 0;
-  transition: all 0.25s;
+  transition: all .25s;
 }
-.ac-select-group .options-wrap .option-list {
+.o2-select-group .options-wrap .option-list {
   position: absolute;
   top: 0;
   left: 0;
@@ -80,9 +99,9 @@
   max-height: 80vh;
   overflow-y: scroll;
   background-color: #FFFFFF;
-  transition: all 0.25s;
+  transition: all .25s;
 }
-.ac-select-group .options-wrap .option-list .option-item {
+.o2-select-group .options-wrap .option-list .option-item {
   line-height: 80rpx;
   border-top: 1px solid #EEEEEE;
   padding: 0 40rpx;

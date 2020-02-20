@@ -1,4 +1,7 @@
 <!--pages/select-group.wxml-->
 <view class="page-wrap">
   <select-group key-opts="{{keyOpts}}" key-values="{{keyValues}}" bindchange="selectGroupChange" />
+  <view>
+    当前值：{{currentValue}}
+  </view>
 </view>

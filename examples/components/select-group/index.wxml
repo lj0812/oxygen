@@ -1,23 +1,20 @@
 <!--components/select-group/index.wxml-->
-<view class="ac-select-group">
+<view class="o2-select-group">
   <view class="select-group">
     <view
       class="select-item {{ index === activeIndex ? 'active': '' }}"
-      style="max-width: {{ selectGroup.length ? 100 / selectGroup.length : 100 }}%"
+      style="max-width: {{ keyOpts.length ? 100 / keyOpts.length : 100 }}%"
       wx:for="{{keyOpts}}"
       wx:key="index"
       data-index="{{index}}"
       bind:tap="toggleActiveIndex"
     >
       <view class="select-text">{{labels[index]}}</view>
-      <view class="select-arrow">
-        <!-- <image src="../assets/images/arrow_down_fill.png" mode="widthFix" style="width: 24rpx; height: 24rpx;" /> -->
-      </view>
     </view>
   </view>
 
   <view class="options-wrap {{ activeIndex > -1 ? 'active' : ''}}" style="{{styleTop ? 'top: ' + styleTop + 'rpx' : ''}}">
-    <view class="options-warp-bg" bindtap="toggleActiveIndex"></view>
+    <view class="options-warp-bg" data-index="-1" bind:tap="toggleActiveIndex"></view>
     <view class="option-list" style="height: {{currentOpts.length * 82}}rpx;">
       <view class="option-item" wx:for="{{currentOpts}}" wx:key="index" data-item="{{item}}" bind:tap="selectOpt">{{item[currentMapper.label]}}</view>
     </view>
