@@ -3,7 +3,8 @@
     "pages/entry",
     "pages/topbar",
     "pages/list-status",
-    "pages/select-group"
+    "pages/select-group",
+    "pages/calendar"
   ],
   "window": {
     "backgroundTextStyle": "light",
