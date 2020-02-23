@@ -1,2 +1,32 @@
 <!--components/calendar/index.wxml-->
-<text>components/calendar/index.wxml</text>
+<view wx:if="{{isTimeShow}}" class="calendar-wrap" bindtap="toggleCalendar" catch:touchmove="ghost">
+  <view class="calendar-box" catch:tap="ghost">
+    <!-- 切换 -->
+    <view class="calendar-switcher">
+      <button wx:if="{{calendarList.length > 1}}" class="switcher-prev fcc {{ currCalendarIndex === 0 ? 'disabled' : '' }}" data-direction="-1" catch:tap="toggleYm"> </button>
+      <button class="switcher-curr fcc">{{calendarList[currCalendarIndex].ym}}</button>
+      <button wx:if="{{calendarList.length > 1}}" class="switcher-next fcc {{ currCalendarIndex === calendarList.length - 1 ? 'disabled' : '' }}" data-direction="1" catch:tap="toggleYm"> </button>
+    </view>
+    <!-- 星期 -->
+    <view class="calendar-week">
+      <view class="week-item">周一</view>
+      <view class="week-item">周二</view>
+      <view class="week-item">周三</view>
+      <view class="week-item">周四</view>
+      <view class="week-item">周五</view>
+      <view class="week-item">周六</view>
+      <view class="week-item">周日</view>
+    </view>
+    <!-- 月视图 -->
+    <swiper class="calendar-content" current="{{currCalendarIndex}}" style="height: {{ calendarList[currCalendarIndex].days.length > 35 ? '552' : '460' }}rpx;" bindchange="calendarChange">
+      <swiper-item class="calendar-month" wx:for="{{calendarList}}" wx:key="index" wx:for-item="month">
+        <view wx:for="{{month.days}}" wx:key="id" wx:for-item="day" class="calendar-day fcc {{day.disable ? 'disabled' : ''}}" data-day="{{day}}" bindtap="selectTime">
+          <view class="date-box">
+            <view class="date-gregorian">{{day.gregorian}}</view>
+            <view class="date-lunar">{{day.lunar}}</view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
