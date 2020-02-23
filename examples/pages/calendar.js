@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isTimeShow: false,
+    timeGap: 30
   },
 
   /**
@@ -62,5 +63,20 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  timeChange (e) {
+    let { value } = e.detail
+
+    wx.showModal({
+      title: '所选日期',
+      content: value.dateStr
+    })
+  },
+
+  showCalendar () {
+    this.setData({
+      isTimeShow: true
+    })
   }
 })

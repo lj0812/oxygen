@@ -1,2 +1,6 @@
 <!--pages/calendar.wxml-->
-<text>pages/calendar.wxml</text>
+<view class="page-wrap">
+  <calendar is-time-show="{{isTimeShow}}" time-gap="{{timeGap}}" bind:change="timeChange" />
+
+  <button bindtap="showCalendar">显示日历</button>
+</view>

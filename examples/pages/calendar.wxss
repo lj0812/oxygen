@@ -1,1 +1,4 @@
 /* pages/calendar.wxss */
+button {
+  line-height: 100rpx;
+}
