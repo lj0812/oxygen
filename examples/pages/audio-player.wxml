@@ -1,0 +1,4 @@
+<!--pages/audio-player.wxml-->
+<view class="page-wrap">
+  <audio-player />
+</view>

@@ -1,0 +1,2 @@
+<!--components/audio-player/index.wxml-->
+<view class="o2-audio-player"></view>

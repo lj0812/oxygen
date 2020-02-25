@@ -4,7 +4,8 @@
     "pages/topbar",
     "pages/list-status",
     "pages/select-group",
-    "pages/calendar"
+    "pages/calendar",
+    "pages/audio-player"
   ],
   "window": {
     "backgroundTextStyle": "light",
