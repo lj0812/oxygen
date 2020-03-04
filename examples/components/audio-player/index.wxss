@@ -1,1 +1,52 @@
 /* components/audio-player/index.wxss */
+
+.fcc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ac-audio-player {
+  width: 80%;
+  padding: 20rpx;
+  display: flex;
+  background-color: #FFFFFF;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+.ac-audio-player .audio-control {
+  width: 56rpx;
+  height: 72rpx;
+  flex-shrink: 0;
+  border-radius: 8rpx;
+  background-color: #FFFFFF;
+  box-shadow: 0 8rpx 13rpx rgba(107, 49, 10, .1);
+  margin-right: 20rpx;
+  overflow: hidden;
+}
+.ac-audio-player .audio-control .control-icon {
+  width: 56rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ac-audio-player .audio-progress {
+  width: 100%;
+  position: relative;
+}
+.ac-audio-player .audio-progress slider {
+  width: 100%;
+  margin: 10rpx 6rpx;
+}
+.ac-audio-player .audio-progress .time-value {
+  position: absolute;
+  bottom: 0;
+  color: #888888;
+  font-size: 20rpx;
+}
+.ac-audio-player .audio-progress .time-value.current-time {
+  left: 0;
+}
+.ac-audio-player .audio-progress .time-value.max-time {
+  right: 0;
+}

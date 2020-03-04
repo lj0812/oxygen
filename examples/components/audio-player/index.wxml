@@ -1,2 +1,14 @@
 <!--components/audio-player/index.wxml-->
-<view class="o2-audio-player"></view>
+<view class="ac-audio-player">
+  <view class="audio-control" bind:tap="toggleAudio">
+    <view class="control-icon">
+      <image wx:if="{{audioData.isPlaying}}" src="./assets/images/icon_audio_pause.png" mode="widthFix" style="width: 20rpx; height: 22rpx;" />
+      <image wx:if="{{!audioData.isPlaying}}" src="./assets/images/icon_audio_play.png" mode="widthFix" style="width: 18rpx; height: 29rpx;" />
+    </view>
+  </view>
+  <view class="audio-progress fcc">
+    <slider min="0" max="{{audioData.max}}" step="0.01" value="{{audioData.currentTime}}" bindchanging="audioProgressChanging" bindchange="audioProgressChange" activeColor="#ff6701" backgroundColor="#fadfcc" block-size="12" block-color="#ff6701" />
+    <view class="time-value current-time">{{audioData.currentTimeStr || '00:00'}}</view>
+    <view class="time-value max-time">{{audioData.maxStr}}</view>
+  </view>
+</view>
