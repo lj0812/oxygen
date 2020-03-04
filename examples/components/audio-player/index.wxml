@@ -1,9 +1,9 @@
 <!--components/audio-player/index.wxml-->
-<view class="ac-audio-player">
+<view class="ac-audio-player ext-class">
   <view class="audio-control" bind:tap="toggleAudio">
     <view class="control-icon">
-      <image wx:if="{{audioData.isPlaying}}" src="./assets/images/icon_audio_pause.png" mode="widthFix" style="width: 20rpx; height: 22rpx;" />
-      <image wx:if="{{!audioData.isPlaying}}" src="./assets/images/icon_audio_play.png" mode="widthFix" style="width: 18rpx; height: 29rpx;" />
+      <image wx:if="{{audioStatus === 'playing'}}" src="./assets/images/icon_audio_pause.png" mode="widthFix" style="width: 20rpx; height: 22rpx;" />
+      <image wx:if="{{audioStatus === 'paused'}}" src="./assets/images/icon_audio_play.png" mode="widthFix" style="width: 18rpx; height: 29rpx;" />
     </view>
   </view>
   <view class="audio-progress fcc">

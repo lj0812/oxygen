@@ -1,1 +1,4 @@
 /* pages/audio-player.wxss */
+.audio-player {
+  margin: 20rpx auto;
+}
