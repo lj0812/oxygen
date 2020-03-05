@@ -1,4 +1,4 @@
 <!--pages/audio-player.wxml-->
 <view class="page-wrap">
-  <audio-player ext-class="audio-player" />
+  <audio-player ext-class="audio-player" wx:for="{{audioList}}" wx:key="index" audio-source="{{item}}" />
 </view>

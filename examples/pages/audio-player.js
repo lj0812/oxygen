@@ -5,6 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
+    audioList: [
+      {
+        src: 'https://fdfs.xmcdn.com/group77/M08/5A/1D/wKgO315eMmizWW4TAEiSSU6Pt2U867.m4a'
+      },
+      {
+        src: 'https://alpha-car-saas-test.oss-cn-qingdao.aliyuncs.com/call/201809/iVPk7Y_X8htneu7ya5rZ.mp3'
+      },
+      {
+        src: "https://fdfs.xmcdn.com/group76/M06/62/A6/wKgO3l5eMl-QUmEXACdNnpXUMuA154.m4a"
+      }
+    ]
 
   },
 
@@ -12,7 +23,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**

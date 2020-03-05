@@ -7,7 +7,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    audioData: {
+    audioSource: {
       type: Object,
       value: {}
     }
@@ -17,19 +17,33 @@ Component({
    * 组件的初始数据
    */
   data: {
-    audioStatus: ''
+    audioId: '',
+    audioData: null,
+    audioStatus: 'init'
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-
+    toggleAudio () {
+      const audioId = this.audioId
+      if (audioManager.activeId !== this.audioId) {
+        audioManager.play(audioId)
+      }
+    }
   },
 
   lifetimes: {
     attached () {
-      audioManager.pushAudio()
+      this.audioId = Date.now() + (Math.random() * 10e5 >> 0)
+
+      this.setData({
+        audioData: Object.assign({}, { id: this.audioId }, this.data.audioSource)
+      })
+      // this.audioData =
+
+      audioManager.addAudio(this.data.audioData)
     }
   }
 })

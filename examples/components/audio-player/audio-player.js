@@ -10,88 +10,106 @@ const formatS2Ms = (s) => {
 
 class AudioManager {
   constructor () {
-    this.audioList = []
-    this.activeIndex = -1
+    this._audioList = {}
+    this._activeId = ''
+    this.activeAudio = null
     this.init()
   }
 
-  // get activeIndex () {
-  //   return this.activeIndex
-  // }
+  get activeId () {
+    return this._activeId
+  }
 
   init () {
-    this.innerAudioContent = wx.createInnerAudioContext()
+    this.innerAudioContext = wx.createInnerAudioContext()
+    this.bindAudioEvent()
   }
 
   bindAudioEvent () {
-    const innerAudioContent = this.innerAudioContent
+    const innerAudioContext = this.innerAudioContext
 
-    innerAudioContent.onError((res) => {
+    innerAudioContext.onError((res) => {
       console.log('onError', res)
     })
 
-    innerAudioContent.onWaiting(() => {
+    innerAudioContext.onWaiting(() => {
       console.log('onWaiting', new Date())
     })
 
-    innerAudioContent.onCanplay(() => {
+    innerAudioContext.onCanplay(() => {
       console.log('onCanplay', new Date())
     })
 
-    innerAudioContent.onPlay(() => {
+    innerAudioContext.onPlay(() => {
       console.log('onPlay', new Date())
     })
 
-    innerAudioContent.onTimeUpdate(() => {
-      if (!this.audioList[this.activeIndex].max) {
-        let duration = innerAudioContent.duration.toFixed(3)
-        this.audioList[this.activeIndex].max = duration
-        this.audioList[this.activeIndex].maxStr = formatS2Ms(duration)
+    innerAudioContext.onTimeUpdate(() => {
+      console.log(this._audioList[this._activeId].currentTime)
+      if (!this._audioList[this._activeId].max) {
+        let duration = innerAudioContext.duration.toFixed(3)
+        this._audioList[this._activeId].max = duration
+        this._audioList[this._activeId].maxStr = formatS2Ms(duration)
       }
 
-      let currentTime = innerAudioContent.currentTime.toFixed(3)
+      let currentTime = innerAudioContext.currentTime.toFixed(3)
 
-      this.audioList[this.activeIndex].currentTime = currentTime
-      this.audioList[this.activeIndex].currentTimeStr = formatS2Ms(currentTime)
+      this._audioList[this._activeId].currentTime = currentTime
+      this._audioList[this._activeId].currentTimeStr = formatS2Ms(currentTime)
     })
 
-    innerAudioContent.onPause(() => {
+    innerAudioContext.onPause(() => {
       console.log('onPause', new Date())
     })
 
-    innerAudioContent.onStop(() => {
+    innerAudioContext.onStop(() => {
       console.log('onStop', new Date())
     })
 
-    innerAudioContent.onSeeking(() => {
+    innerAudioContext.onSeeking(() => {
       console.log('onSeeking', new Date())
     })
 
-    innerAudioContent.onSeeked(() => {
+    innerAudioContext.onSeeked(() => {
       console.log('onSeeked', new Date())
     })
 
-    innerAudioContent.onEnded(() => {
+    innerAudioContext.onEnded(() => {
       console.log('onEnded', new Date())
-      this.audioList[this.activeIndex].isPlaying = false
-      this.audioList[this.activeIndex].currentTime = 0
-      this.audioList[this.activeIndex].currentTimeStr = formatS2Ms(0)
+      this._audioList[this._activeId].isPlaying = false
+      this._audioList[this._activeId].currentTime = 0
+      this._audioList[this._activeId].currentTimeStr = formatS2Ms(0)
     })
   }
 
-  pushAudio (audio) {
-    this.audioList.push(this.initAnAudio(audio))
+  addAudio (audio) {
+    // 已经添加了audio
+    if (typeof this._audioList[audio.id] !== 'undefined') {
+      return false
+    }
 
-    console.log(this.audioList)
+    const newAudioData = this.enrichAudio(audio)
+    this._audioList[audio.id] = newAudioData
   }
 
-  initAnAudio (audio) {
+  enrichAudio (audio) {
     return Object.assign(audio, {
       isPlaying: false,
       currentTime: 0,
-      currentTimeStr: formatS2Ms(0),
-      id: Date.now() + Math.random() * 10e5 >> 0
+      currentTimeStr: formatS2Ms(0)
     })
+  }
+
+  play (audioId) {
+    let audio = this._audioList[audioId]
+
+    // this._activeAudio = audio
+    this._activeId = audio.id
+
+    this.innerAudioContext.src = audio.src
+    this.innerAudioContext.play()
+
+    console.log(this.innerAudioContext.onTimeUpdate)
   }
 }
 
