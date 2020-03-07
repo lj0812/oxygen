@@ -41,7 +41,6 @@ Component({
       this.setData({
         audioData: Object.assign({}, { id: this.audioId }, this.data.audioSource)
       })
-      // this.audioData =
 
       audioManager.addAudio(this.data.audioData)
     }

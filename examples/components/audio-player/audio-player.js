@@ -103,7 +103,6 @@ class AudioManager {
   play (audioId) {
     let audio = this._audioList[audioId]
 
-    // this._activeAudio = audio
     this._activeId = audio.id
 
     this.innerAudioContext.src = audio.src
