@@ -1,0 +1,4 @@
+<!--pages/notice.wxml-->
+<view class="page-wrap">
+  <notice notice="{{noticeData}}" />
+</view>
