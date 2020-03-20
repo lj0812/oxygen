@@ -1,0 +1,12 @@
+<!--components/notice/index.wxml-->
+<view class="component-notice">
+  <view class="notice-image">
+    <image src="./assets/images/icon_notice.png" mode="widthFix" style="width: 32rpx; height: 32rpx;" />
+  </view>
+  <view class="notice-text">
+    <view class="text">{{notice.text}}</view>
+  </view>
+  <view class="notice-close">
+    <image src="./assets/images/icon_close_fff.png" mode="widthFix" style="width: 32rpx; height: 32rpx;" />
+  </view>
+</view>

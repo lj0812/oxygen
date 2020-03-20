@@ -1,0 +1,40 @@
+/* components/notice/index.wxss */
+
+.component-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48rpx;
+  background-color: #FF6701;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  display: flex;
+}
+.component-notice .notice-image,
+.component-notice .notice-close {
+  width: 58rpx;
+  height: 48rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.component-notice .notice-text {
+  flex: 1;
+  flex-shrink: 0;
+  line-height: 48rpx;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.component-notice .notice-text .text {
+  width: max-content;
+  animation: remindMessage 10s linear infinite;
+}
+@keyframes remindMessage {
+  0% {
+    -webkit-transform: translateX(10%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
