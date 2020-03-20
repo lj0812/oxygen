@@ -19,6 +19,10 @@ const componentList = [
   {
     name: '音频播放器',
     key: 'audio-player'
+  },
+  {
+    name: '通知消息',
+    key: 'notice'
   }
 ]
 
