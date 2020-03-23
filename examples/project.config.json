@@ -81,6 +81,14 @@
 					"id": -1,
 					"name": "pages/audio-player",
 					"pathName": "pages/audio-player",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/voice-word",
+					"pathName": "pages/voice-word",
+					"query": "",
 					"scene": null
 				}
 			]

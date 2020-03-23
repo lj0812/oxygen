@@ -23,6 +23,10 @@ const componentList = [
   {
     name: '通知消息',
     key: 'notice'
+  },
+  {
+    name: '录音',
+    key: 'voice-word'
   }
 ]
 
