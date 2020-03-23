@@ -6,7 +6,8 @@
     "pages/select-group",
     "pages/calendar",
     "pages/audio-player",
-    "pages/notice"
+    "pages/notice",
+    "pages/voice-word"
   ],
   "window": {
     "backgroundTextStyle": "light",
