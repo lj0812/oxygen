@@ -30,6 +30,7 @@ wxRecorderManager.onStop(function (res) {
 
 class Recorder {
   constructor (name, config) {
+    console.log('name', name, config)
     this.name = name
     acceptor[name] = {
       _status: 'init',
@@ -40,6 +41,7 @@ class Recorder {
   start (options = defaultOptions) {
     currAcceptor = this.name
     acceptor[currAcceptor]._status = 'started'
+    // 网络状况影响start函数
     wxRecorderManager.start(options)
   }
 

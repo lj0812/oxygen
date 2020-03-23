@@ -1,2 +1,2 @@
 <!--pages/voice-word.wxml-->
-<text>pages/voice-word.wxml</text>
+<voice-word name="test" />

@@ -1,9 +1,13 @@
 <!--components/voice-word/index.wxml-->
 <view class="ac-mic">
-  <view bindtouchstart="recordStart" bindtouchend="recordEnd" bindtouchcancel="recordEnd"
-    class="{{speaking ? 'speaking' : ''}}">
+  <view
+    bind:touchstart="onTouchStart"
+    bind:touchend="onTouchEnd"
+    bind:touchcancel="onTouchCancel"
+    class="jarvis {{isRecording ? 'speaking' : ''}}"
+  >
     <view class="voice-tips left">
-      <block wx:if="{{speaking}}">
+      <block wx:if="{{isRecording}}">
         <view></view>
         <view></view>
         <view></view>
@@ -16,10 +20,10 @@
       </block>
     </view>
     <view class="mic-icon">
-      <image src="/img/icon_mic_b4037205.png" mode="wdithFix" style="width: 80rpx; height: 80rpx;" />
+      <image src="./assets/images/icon_mic.png" mode="wdithFix" style="width: 80rpx; height: 80rpx;" />
     </view>
     <view class="voice-tips right">
-      <block wx:if="{{speaking}}">
+      <block wx:if="{{isRecording}}">
         <view></view>
         <view></view>
         <view></view>
@@ -32,6 +36,7 @@
       </block>
     </view>
   </view>
+
   <view class="page-modal" wx:if="{{showPageModal}}">
     <view class="modal-box">
       <view class="modal-title">提示</view>
