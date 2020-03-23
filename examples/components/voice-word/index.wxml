@@ -1,0 +1,44 @@
+<!--components/voice-word/index.wxml-->
+<view class="ac-mic">
+  <view bindtouchstart="recordStart" bindtouchend="recordEnd" bindtouchcancel="recordEnd"
+    class="{{speaking ? 'speaking' : ''}}">
+    <view class="voice-tips left">
+      <block wx:if="{{speaking}}">
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+      </block>
+    </view>
+    <view class="mic-icon">
+      <image src="/img/icon_mic_b4037205.png" mode="wdithFix" style="width: 80rpx; height: 80rpx;" />
+    </view>
+    <view class="voice-tips right">
+      <block wx:if="{{speaking}}">
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+      </block>
+    </view>
+  </view>
+  <view class="page-modal" wx:if="{{showPageModal}}">
+    <view class="modal-box">
+      <view class="modal-title">提示</view>
+      <view class="modal-content">你之前拒绝了授权，无法使用录音功能</view>
+      <view class="modal-operate"><button bindtap="modalCancel" class="modal-cancel">继续拒绝</button> <button
+          open-type="openSetting" bindopensetting="modalConfirm" bindtap="goAuth" class="modal-confirm">重新授权</button>
+      </view>
+    </view>
+  </view>
+</view>

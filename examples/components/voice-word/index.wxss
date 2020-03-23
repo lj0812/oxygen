@@ -1,0 +1,153 @@
+/* components/voice-word/index.wxss */
+
+.ac-mic .jarvis {
+  height: 80rpx;
+  padding: 0 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 8rpx;
+  border-bottom-right-radius: 8rpx;
+  position: relative;
+}
+.ac-mic .voice-tips {
+  display: flex;
+  width: 128rpx;
+  height: 80rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+.ac-mic .voice-tips > view {
+  width: 8rpx;
+  height: 8rpx;
+  background: linear-gradient(to bottom, #FAA64F, #FE797F);
+  border-radius: 20rpx;
+}
+.ac-mic .voice-tips.left > view:nth-of-type(1) {
+  animation: mic .8s linear .2s infinite;
+}
+.ac-mic .voice-tips.left > view:nth-of-type(2) {
+  animation: mic .8s linear .4s infinite;
+}
+.ac-mic .voice-tips.left > view:nth-of-type(3) {
+  animation: mic .8s linear 0s infinite;
+}
+.ac-mic .voice-tips.left > view:nth-of-type(4) {
+  animation: mic .8s linear .5s infinite;
+}
+.ac-mic .voice-tips.left > view:nth-of-type(5) {
+  animation: mic .8s linear .1s infinite;
+}
+.ac-mic .voice-tips.left > view:nth-of-type(6) {
+  animation: mic .8s linear .2s infinite;
+}
+.ac-mic .voice-tips.left > view:nth-of-type(7) {
+  animation: mic .8s linear .5s infinite;
+}
+.ac-mic .voice-tips.left > view:nth-of-type(8) {
+  animation: mic .8s linear .1s infinite;
+}
+.ac-mic .voice-tips.left > view:nth-of-type(9) {
+  animation: mic .8s linear .6s infinite;
+}
+.ac-mic .voice-tips.right > view:nth-of-type(9) {
+  animation: mic .8s linear .6s infinite;
+}
+.ac-mic .voice-tips.right > view:nth-of-type(8) {
+  animation: mic .8s linear .1s infinite;
+}
+.ac-mic .voice-tips.right > view:nth-of-type(7) {
+  animation: mic .8s linear .5s infinite;
+}
+.ac-mic .voice-tips.right > view:nth-of-type(6) {
+  animation: mic .8s linear .2s infinite;
+}
+.ac-mic .voice-tips.right > view:nth-of-type(5) {
+  animation: mic .8s linear .1s infinite;
+}
+.ac-mic .voice-tips.right > view:nth-of-type(4) {
+  animation: mic .8s linear .5s infinite;
+}
+.ac-mic .voice-tips.right > view:nth-of-type(3) {
+  animation: mic .8s linear 0s infinite;
+}
+.ac-mic .voice-tips.right > view:nth-of-type(2) {
+  animation: mic .8s linear .4s infinite;
+}
+.ac-mic .voice-tips.right > view:nth-of-type(1) {
+  animation: mic .8s linear .2s infinite;
+}
+.ac-mic .mic-icon {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 30rpx;
+  border-radius: 50%;
+  box-shadow: -4rpx 0 14rpx rgba(255, 103, 1, .3);
+}
+@keyframes mic {
+  0% {
+    height: 8rpx;
+  }
+  25% {
+    height: 27rpx;
+  }
+  50% {
+    height: 39rpx;
+  }
+  75% {
+    height: 27rpx;
+  }
+  100% {
+    height: 8rpx;
+  }
+}
+.page-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-modal .modal-box {
+  width: 550rpx;
+  min-height: 280rpx;
+  padding: 40rpx 50rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+  border-radius: 4rpx;
+}
+.page-modal .modal-box .modal-title {
+  font-size: 36rpx;
+  color: #333333;
+}
+.page-modal .modal-box .modal-content {
+  font-size: 26rpx;
+  color: #888888;
+}
+.page-modal .modal-box .modal-operate {
+  display: flex;
+  justify-content: flex-end;
+}
+.page-modal .modal-box .modal-operate button {
+  font-size: 24rpx;
+  margin: 0;
+  text-align: center;
+  background-color: transparent;
+}
+.page-modal .modal-box .modal-operate .modal-cancel {
+  color: #333333;
+}
+.page-modal .modal-box .modal-operate .modal-confirm {
+  color: #FF8533;
+  margin-left: 50rpx;
+}
