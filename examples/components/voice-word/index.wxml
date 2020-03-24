@@ -41,8 +41,9 @@
     <view class="modal-box">
       <view class="modal-title">提示</view>
       <view class="modal-content">你之前拒绝了授权，无法使用录音功能</view>
-      <view class="modal-operate"><button bindtap="modalCancel" class="modal-cancel">继续拒绝</button> <button
-          open-type="openSetting" bindopensetting="modalConfirm" bindtap="goAuth" class="modal-confirm">重新授权</button>
+      <view class="modal-operate">
+        <button bindtap="modalCancel" class="modal-cancel">继续拒绝</button>
+        <button open-type="openSetting" bindopensetting="modalConfirm" bindtap="goAuth" class="modal-confirm">重新授权</button>
       </view>
     </view>
   </view>

@@ -26,7 +26,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onTouchStart(e) {
+    onTouchStart() {
       wx.getSetting({
         success: res => {
           let { authSetting } = res
@@ -44,17 +44,12 @@ Component({
       this.recorder.start()
     },
 
-    onTouchEnd(e) {
-      console.log('onTouchEnd', e)
+    onTouchEnd() {
       this.recorder.stop()
     },
 
-    onTouchCancel(e) {
-      console.log('onTouchCancel', e)
-    },
-
-    onTouchMove(e) {
-      console.log('onTouchMove', e)
+    onTouchCancel() {
+      this.recorder.stop()
     },
 
     modalCancel () {
@@ -85,6 +80,10 @@ Component({
           console.log('结束了', tempFilePath)
           this.setData({
             isRecording: false
+          })
+
+          this.triggerEvent('change', {
+            value: tempFilePath
           })
         }
       })
