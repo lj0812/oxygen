@@ -1,2 +1,2 @@
 <!--pages/voice-word.wxml-->
-<voice-word name="test" />
+<voice-word name="test" bind:change="getVoice" />
