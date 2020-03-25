@@ -1,23 +1,17 @@
-const formatValue = val => {
-  return val < 10 ? `0${val}` : val
-}
-
-const formatS2Ms = (s) => {
-  let m = Math.floor(s / 60)
-  s = Math.floor(s % 60)
-  return `${formatValue(m)}:${formatValue(s)}`
-}
-
 class AudioManager {
   constructor () {
     this._audioList = {}
     this._activeId = ''
-    this.activeAudio = null
+    this._activeAudio = null
     this.init()
   }
 
   get activeId () {
     return this._activeId
+  }
+
+  get paused () {
+    return this.innerAudioContext.paused
   }
 
   init () {
@@ -29,56 +23,55 @@ class AudioManager {
     const innerAudioContext = this.innerAudioContext
 
     innerAudioContext.onError((res) => {
-      console.log('onError', res)
+      // this._activeAudio.updateAudioStatus('has-error')
     })
 
     innerAudioContext.onWaiting(() => {
-      console.log('onWaiting', new Date())
+      this._activeAudio.updateAudioStatus('waiting')
     })
 
     innerAudioContext.onCanplay(() => {
-      console.log('onCanplay', new Date())
+      console.log('总时长', innerAudioContext.duration)
+      // this._activeAudio.updateAudioStatus('canplay')
     })
 
     innerAudioContext.onPlay(() => {
-      console.log('onPlay', new Date())
+      // this._activeAudio.updateAudioStatus('play')
     })
 
     innerAudioContext.onTimeUpdate(() => {
-      console.log(this._audioList[this._activeId].currentTime)
-      if (!this._audioList[this._activeId].max) {
-        let duration = innerAudioContext.duration.toFixed(3)
-        this._audioList[this._activeId].max = duration
-        this._audioList[this._activeId].maxStr = formatS2Ms(duration)
+      this._activeAudio.updateAudioStatus('playing')
+
+      if (!this._activeAudio.duration) {
+        const duration = innerAudioContext.duration.toFixed(3)
+        this._activeAudio.updateDuration(duration)
       }
 
-      let currentTime = innerAudioContext.currentTime.toFixed(3)
-
-      this._audioList[this._activeId].currentTime = currentTime
-      this._audioList[this._activeId].currentTimeStr = formatS2Ms(currentTime)
+      const currentTime = innerAudioContext.currentTime.toFixed(3)
+      this._activeAudio.updateCurrentTime(currentTime)
     })
 
     innerAudioContext.onPause(() => {
-      console.log('onPause', new Date())
+      // this._activeAudio.updateAudioStatus('paused')
     })
 
     innerAudioContext.onStop(() => {
-      console.log('onStop', new Date())
+      this._activeAudio.updateAudioStatus('paused')
     })
 
     innerAudioContext.onSeeking(() => {
-      console.log('onSeeking', new Date())
+      // this._activeAudio.updateAudioStatus('seeking')
     })
 
     innerAudioContext.onSeeked(() => {
-      console.log('onSeeked', new Date())
+      // this._activeAudio.updateAudioStatus('seeked')
     })
 
     innerAudioContext.onEnded(() => {
-      console.log('onEnded', new Date())
-      this._audioList[this._activeId].isPlaying = false
-      this._audioList[this._activeId].currentTime = 0
-      this._audioList[this._activeId].currentTimeStr = formatS2Ms(0)
+      this._activeAudio.updateAudioStatus('paused')
+      this._activeAudio.updateCurrentTime(0)
+      // 音频结束初始化
+      this.initAudioActive()
     })
   }
 
@@ -88,27 +81,43 @@ class AudioManager {
       return false
     }
 
-    const newAudioData = this.enrichAudio(audio)
-    this._audioList[audio.id] = newAudioData
+    this._audioList[audio.id] = audio
   }
 
-  enrichAudio (audio) {
-    return Object.assign(audio, {
-      isPlaying: false,
-      currentTime: 0,
-      currentTimeStr: formatS2Ms(0)
-    })
+  initAudioActive () {
+    // 音频结束初始化
+    this._activeId = ''
+    // this._activeAudio = null
   }
 
-  play (audioId) {
-    let audio = this._audioList[audioId]
+  setAudio (audioId) {
+    const audio = this._audioList[audioId]
+
+    this._activeAudio = audio
 
     this._activeId = audio.id
 
     this.innerAudioContext.src = audio.src
-    this.innerAudioContext.play()
+    this.innerAudioContext.seek(audio.currentTime)
+  }
 
-    console.log(this.innerAudioContext.onTimeUpdate)
+  play (audioId) {
+    this.setAudio(audioId)
+    this.innerAudioContext.play()
+  }
+
+  pause () {
+    this.innerAudioContext.stop()
+    this.initAudioActive()
+  }
+
+  stopAudio (audioId) {
+    if (!audioId) {
+      return false
+    }
+    const audio = this._audioList[audioId]
+    audio.updateAudioStatus('paused')
+    console.log(audio)
   }
 }
 

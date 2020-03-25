@@ -2,13 +2,14 @@
 <view class="ac-audio-player ext-class">
   <view class="audio-control" bind:tap="toggleAudio">
     <view class="control-icon">
-      <image wx:if="{{audioStatus === 'playing'}}" src="./assets/images/icon_audio_pause.png" mode="widthFix" style="width: 20rpx; height: 22rpx;" />
-      <image wx:if="{{audioStatus === 'paused' || audioStatus === 'init'}}" src="./assets/images/icon_audio_play.png" mode="widthFix" style="width: 18rpx; height: 29rpx;" />
+      <image wx:if="{{audioData.audioStatus === 'playing'}}" src="./assets/images/icon_audio_pause.png" mode="widthFix" style="width: 20rpx; height: 22rpx;" />
+      <image wx:if="{{audioData.audioStatus === 'waiting'}}" class="loading" src="./assets/images/icon_audio_loading.png" mode="widthFix" style="width: 28rpx; height: 28rpx;" />
+      <image wx:if="{{audioData.audioStatus === 'paused'}}" src="./assets/images/icon_audio_play.png" mode="widthFix" style="width: 18rpx; height: 29rpx;" />
     </view>
   </view>
   <view class="audio-progress fcc">
-    <slider min="0" max="{{audioData.max}}" step="0.01" value="{{audioData.currentTime}}" bindchanging="audioProgressChanging" bindchange="audioProgressChange" activeColor="#ff6701" backgroundColor="#fadfcc" block-size="12" block-color="#ff6701" />
-    <view class="time-value current-time">{{audioData.currentTimeStr || '00:00'}}</view>
-    <view class="time-value max-time">{{audioData.maxStr}}</view>
+    <slider min="0" max="{{audioData.duration}}" step="0.01" value="{{audioData.currentTime}}" bindchanging="audioProgressChanging" bindchange="audioProgressChange" activeColor="#ff6701" backgroundColor="#fadfcc" block-size="12" block-color="#ff6701" />
+    <view class="time-value current-time">{{audioData.currentTimeStr}}</view>
+    <view class="time-value max-time">{{audioData.durationStr}}</view>
   </view>
 </view>
