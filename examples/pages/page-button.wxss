@@ -1,0 +1,4 @@
+/* pages/page-button.wxss */
+.page-btn {
+  top: 200rpx;
+}

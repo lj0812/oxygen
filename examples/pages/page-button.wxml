@@ -1,0 +1,4 @@
+<!--pages/page-button.wxml-->
+<page-button text="普通大按钮"></page-button>
+<page-button my-class="page-btn" text="fixed按钮" fixed></page-button>
+<page-button text="底部按钮" fixed="bottom"></page-button>

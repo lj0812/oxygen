@@ -90,6 +90,12 @@
 					"pathName": "pages/voice-word",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/page-button",
+					"pathName": "pages/page-button",
+					"scene": null
 				}
 			]
 		}

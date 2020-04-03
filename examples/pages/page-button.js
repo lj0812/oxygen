@@ -1,46 +1,11 @@
-// pages/entry.js
-const componentList = [
-  {
-    name: '顶部切换',
-    key: 'topbar'
-  },
-  {
-    name: '列表状态',
-    key: 'list-status'
-  },
-  {
-    name: '选项组',
-    key: 'select-group'
-  },
-  {
-    name: '日历',
-    key: 'calendar'
-  },
-  {
-    name: '音频播放器',
-    key: 'audio-player'
-  },
-  {
-    name: '通知消息',
-    key: 'notice'
-  },
-  {
-    name: '录音',
-    key: 'voice-word'
-  },
-  {
-    name: '页面按钮',
-    key: 'page-button'
-  }
-]
-
+// pages/page-button.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    componentList: [ ...componentList ]
+
   },
 
   /**
@@ -97,13 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  goComponentPage (e) {
-    let { currentTarget: { dataset: { key } } } = e
-
-    wx.navigateTo({
-      url: `/pages/${key}`
-    })
   }
 })
