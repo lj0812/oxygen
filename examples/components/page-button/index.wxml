@@ -1,0 +1,7 @@
+<!--components/page-btn/index.wxml-->
+<view class="component-page-btn page-button my-class {{active ? 'active' : ''}} {{!!fixed ? 'btn_fixed' : ''}} {{fixed === 'bottom' ? 'fixed_bottom' : ''}}">
+  <view class="page-btn">
+    <button bindtap="onTap">{{text}}</button>
+    <view class="ghost"></view>
+  </view>
+</view>

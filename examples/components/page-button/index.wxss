@@ -1,0 +1,56 @@
+/* components/page-btn/index.wxss */
+button {
+  padding: 0;
+  border-radius: 0;
+}
+button::after {
+  display: none;
+}
+.page-button {
+  width: 100%;
+}
+.page-button .page-btn {
+  width: 690rpx;
+  height: 98rpx;
+  margin: 0 auto;
+  position: relative;
+}
+.page-button .page-btn button,
+.page-button .page-btn .ghost {
+  width: 100%;
+  height: 98rpx;
+  border-radius: 12rpx;
+}
+.page-button .page-btn button {
+  line-height: 98rpx;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  background: #CCCCCC;
+}
+.page-button .page-btn .ghost {
+  display: none;
+}
+.page-button.btn_fixed {
+  position: fixed;
+  left: 0;
+  z-index: 50;
+}
+.page-button.fixed_bottom {
+  bottom: 0;
+  padding: 30rpx 0;
+  background-color: #FFFFFF;
+  box-shadow: 0 -4rpx 8rpx rgba(0, 0, 0, .13);
+}
+.page-button.active .page-btn button,
+.page-button.active .page-btn .ghost {
+  background: linear-gradient(to right, #FFA800, #FF6701);
+}
+.page-button.active .page-btn .ghost {
+  display: block;
+  opacity: .3;
+  filter: blur(5rpx);
+  position: absolute;
+  bottom: -6rpx;
+  left: 0;
+  z-index: -1;
+}
